@@ -1,0 +1,16 @@
+{
+  "name": "backend-ct",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "bhaneshvar kshirsagar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "give-me-a-joke": "^0.5.1"
+  }
+}

@@ -1,0 +1,213 @@
+// console.log("Hello World!!!!");
+// console.log("Abhishek");
+
+
+
+// Synchroun File System
+//  let fs = require('fs');
+// fs.writeFileSync('index.html' , 'this is an index'); // Creating a file in our system
+
+// let data = fs.readFileSync('index.html'); // Read the data in our file
+// // console.log(data.toString());
+
+// // fs.unlinkSync('index.html') // delete file in our system
+// fs.appendFileSync('index.html' , "Append a new Data in existing file"); // using for existing data file updation;
+
+// console.log(fs.readFileSync('index.html').toString());
+
+
+
+// Asynce File System
+// let fs = require('fs');
+// fs.writeFile('index.html', 'hellow', (err) => { // create a file
+//     if (err) throw err
+//     console.log('Nothing to change kyyyyyyyyy');
+// });
+
+
+// // Read the data in our file
+// fs.readFile('index.html', (err, data) => {
+//     if (err) throw err
+//     console.log(data.toString());
+// });
+
+
+
+// // Delete a file
+// fs.unlink('index.html' , (err , data)=>{
+//     if(err) throw err
+//     console.log('File Delete successfullyy');
+// })
+
+
+// fs.appendFile('index.html', 'hello new Data', (err) => {
+//     if (err) throw err;
+//     console.log("File updated successfully");
+// });
+
+
+
+
+
+// Library and framwork
+// The main difference between a library and a framework is that a library provides tools for developers to use as they wish, while a framework provides a structure that guides how developers build their applications
+
+
+// how can we use outer depandencies
+// npm i give-me-a-joke {Install first} and requre and use
+
+// let joke = require('give-me-a-joke');
+// joke.getRandomDadJoke((data)=>{
+//     console.log(data);
+
+// })
+
+
+
+
+
+
+//  HOW TO CREATE A SERVER USING NODE-JS using HTTP Module
+
+// let http = require('http');
+
+// const server = http.createServer((req, res) => {
+//     res.end("Server Created SuccessFully");
+// });
+// server.listen(8000, console.log('Server running on port 8000'));
+
+
+
+
+
+
+
+// // getting the response from the server
+// let http = require('http');
+
+// const server = http.createServer((req, res) => {
+//     console.log(req , "Reqqqqqqqq");
+
+//     if(req.url == '/')
+//     res.end("Server Created SuccessFully");
+
+
+//     else if(req.url == '/about')
+//     res.end("About Paggeeeeee");
+
+
+//     else 
+//     res.end('404 Page  Not found')
+// });
+// server.listen(8000, console.log('Server running on port 8000'));
+
+
+
+
+
+
+
+
+// Crating a server using expressJS
+
+let express = require('express');
+let app = express();
+
+
+
+// midleware -> it is nothing but a bodygard b/w the frontend and backend
+// midleware -1
+// app.use((req, res, next) => {
+//     // res.send("Don't Go From here !!!");
+//     next();
+// })
+
+// // midleware -2
+// app.use((req, res, next) => {
+//     // res.send("Don't Go From here !!!");
+//     next();
+// })
+
+
+// Static routining
+app.get('/', (req, res) => {
+    res.send("hello express")
+});
+
+// // Static routining
+// app.get('/login', (req, res) => {
+//     res.send("hello login")
+// });
+
+
+
+// Dynamic Routing  : Multiple route create na krke ek hi single route me work karna jiske thrugh multiple route ko ascess kiya ja sake
+// Dynamic routing is a method for selecting the best path for data to travel through a network to reach its destination. 
+// app.use('/:id', (req, res) => { // id-> id is nothing but a parameter (Like Input)
+//     console.log(req.params);
+//     res.send("This is an Dynamic Routing")
+
+// })
+
+
+// Task -1  Array me kitne element jhai unko route ke thrugh print karna hai
+
+let arr = [1, 2, 3, 45, 5, 6, 7, 4, 32, 2, 4, 36, 56, 45, 22, 5, 36, 47, 2, 2, 54, 65, 6, 2, 2, 65, 7, 45];
+
+
+app.get('/:id', (req, res) => {
+    let { id } = req.params;
+    let count = 0;
+
+
+
+
+    //Print the count of the data
+    // for (let num of arr) {
+    //     if (num == id) {
+    //         count++;
+    //     }
+    // }
+
+    // let fil = arr.filter((e) => {
+    //     return e == id;
+    // });
+
+    // res.send(fil)
+
+    // res.send({count});
+
+
+
+    // Print the name is equal to the count
+    // 1. first way
+    // let ans = [];
+    // for (let num of arr) {
+    //     if (num == id) {
+    //         ans.push("Bhaneshvar");
+    //     }
+    // }
+
+
+    let fil = arr.filter((e) => {
+        return e == id;
+    });
+
+    let name = fil.map(() => {
+        return "Bhaneshvar"
+    })
+
+    // res.send(name);
+    res.send(name.toString());
+
+    // res.send(ans);
+
+})
+
+
+
+
+
+
+
+app.listen(8080, console.log("Server Started on port 8080"));
