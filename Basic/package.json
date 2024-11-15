@@ -10,6 +10,7 @@
   "author": "bhaneshvar kshirsagar",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.21.1",
     "give-me-a-joke": "^0.5.1"
   }

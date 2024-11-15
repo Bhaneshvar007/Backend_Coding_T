@@ -130,9 +130,9 @@ let app = express();
 
 
 // Static routining
-app.get('/', (req, res) => {
-    res.send("hello express")
-});
+// app.get('/', (req, res) => {
+//     res.send("hello express")
+// });
 
 // // Static routining
 // app.get('/login', (req, res) => {
@@ -152,62 +152,152 @@ app.get('/', (req, res) => {
 
 // Task -1  Array me kitne element jhai unko route ke thrugh print karna hai
 
-let arr = [1, 2, 3, 45, 5, 6, 7, 4, 32, 2, 4, 36, 56, 45, 22, 5, 36, 47, 2, 2, 54, 65, 6, 2, 2, 65, 7, 45];
+// let arr = [1, 2, 3, 45, 5, 6, 7, 4, 32, 2, 4, 36, 56, 45, 22, 5, 36, 47, 2, 2, 54, 65, 6, 2, 2, 65, 7, 45];
 
 
-app.get('/:id', (req, res) => {
-    let { id } = req.params;
-    let count = 0;
-
-
-
-
-    //Print the count of the data
-    // for (let num of arr) {
-    //     if (num == id) {
-    //         count++;
-    //     }
-    // }
-
-    // let fil = arr.filter((e) => {
-    //     return e == id;
-    // });
-
-    // res.send(fil)
-
-    // res.send({count});
+// app.get('/:id', (req, res) => {
+//     let { id } = req.params;
+//     let count = 0;
 
 
 
-    // Print the name is equal to the count
-    // 1. first way
-    // let ans = [];
-    // for (let num of arr) {
-    //     if (num == id) {
-    //         ans.push("Bhaneshvar");
-    //     }
-    // }
+
+//Print the count of the data
+// for (let num of arr) {
+//     if (num == id) {
+//         count++;
+//     }
+// }
+
+// let fil = arr.filter((e) => {
+//     return e == id;
+// });
+
+// res.send(fil)
+
+// res.send({count});
 
 
-    let fil = arr.filter((e) => {
-        return e == id;
-    });
 
-    let name = fil.map(() => {
-        return "Bhaneshvar"
-    })
+// Print the name is equal to the count
+// 1. first way
+// let ans = [];
+// for (let num of arr) {
+//     if (num == id) {
+//         ans.push("Bhaneshvar");
+//     }
+// }
 
-    // res.send(name);
-    res.send(name.toString());
 
-    // res.send(ans);
+//     let fil = arr.filter((e) => {
+//         return e == id;
+//     });
 
+//     let name = fil.map(() => {
+//         return "Bhaneshvar"
+//     })
+
+//     // res.send(name);
+//     res.send(name.toString());
+
+//     // res.send(ans);
+
+// })
+
+
+
+// get - >  server se data manwana ho
+// post -> server par data send karna ho
+// patch/put ->  update the data 
+// delete - > delete the data from the server
+
+
+
+
+
+// app.get('/' , (req,res)=>{
+//     res.send("Hello js");
+// })
+
+
+
+
+
+
+
+//  Path Parameter
+
+// Path parameters are an essential part of RESTful APIs
+// '/path/example'
+// app.get('/path/example' , (rew,res)=>{
+// res.send("msg")
+// })
+
+
+// Quaryparameter - > A query string refers to the portion of a URL (Uniform Resource Locator) that comes after the question mark (?). It
+// example -> ?name=abc like that
+
+// app.get('/search', (req, res) => {
+//     console.log(req.query);
+//     // ?name=abhishek&&age=20 this is an quary
+
+//     let { name, age } = req.query;
+//     res.send(`hello " ${name} " and ${age}`)
+// })
+
+
+
+//  Post Method
+
+// Using for sending the data from the frontEnd to BackEnd
+
+app.use(express.urlencoded({ extended: true })); // Middleware for parsing URL-encoded data (For Form data)
+app.use(express.json()); // Middleware for parsing JSON data
+
+// app.post('/search', (req, res) => {
+//     // Using Thunder Client or Postman to send the data
+//     console.log(req.body);
+
+//     const { name } = req.body; // Destructure 'name' from request body
+//     console.log(name); // Middleware is required to parse JSON data from req.body
+
+//     res.send("Data sent successfully");
+// });
+
+
+
+
+
+// Template Engine (Templating {Ejs})
+
+// Install the Ejs
+// Alwaye create a views Folder
+
+
+app.set('view engine', 'ejs');
+
+// app.get('/', (req, res) => {
+//     res.render('index')
+// })
+
+
+
+// Random number Ganeratore
+// app.get('/', (req, res) => {
+//     let randomeNum = Math.random();
+//     res.render('index', { randomeNum })
+// });
+
+
+// 
+
+let arr = ['cat', 'dog', 'cow', 'ox']
+app.get('/', (req, res)=>{
+    res.render('index', { arr })
 })
-
-
-
-
-
+app.get('/new', (req, res)=>{
+    res.render('new')
+})
 
 
 app.listen(8080, console.log("Server Started on port 8080"));
