@@ -3,8 +3,8 @@ const router = express.Router();
 const User = require("../model/user");
 let bcrypt = require('bcrypt');
 
-
-
+ 
+//  app ko 2 bar use njhi jar sakte hai esliye hamne routrer ko require kiya hai jisse esme app ki sari pawer a agyi hai 
 router.post('/create', async (req, res) => {
     let user = req.body;
     // console.log(user);

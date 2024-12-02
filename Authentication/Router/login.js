@@ -4,6 +4,8 @@ const User = require("../model/user");
 let bcrypt = require('bcrypt');
 let jwt = require('jsonwebtoken');
 
+
+//  app ko 2 bar use njhi jar sakte hai esliye hamne routrer ko require kiya hai jisse esme app ki sari pawer a agyi hai 
 router.post('/login', async (req, res) => {
     let loginData = req.body;
     let data = await User.findOne({ email: loginData.email })
