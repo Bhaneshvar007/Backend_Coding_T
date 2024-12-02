@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Update</legend>
+        <form action='/data/edit/<%=editData.id%>?_method="PATCH"' method="post">
+            <input type="text" name="username" value="<%=editData.username%>">
+            <br><br>
+            <input type="text"  name="comment" value="<%=editData.comment%>">
+            <br><br>
+
+            <button>Submit</button>
+        </form>
+    </fieldset>
+</body>
+
+</html>

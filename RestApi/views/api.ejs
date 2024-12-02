@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="api.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>REST API <span>CARD'S</span> </h1>
+
+        <nav>
+            <h1>Recipe's</h1>
+            <div>
+                <a href="/">Home</a>
+                <a href="/recipe">Recipe</a>
+                
+            </div>
+        </nav>
+        <div class="card">
+            <% for (let i of recipes) { %>
+                <div class="recipe-card">
+
+                    <h3>
+                        Name : <%= i.name %>
+                    </h3>
+
+                    <img src="<%= i.image %>" alt="Recipe Image">
+                    <p>
+                        Ingredients : <%= i.ingredients[0] %>
+                    </p>
+                    <p>
+                        Instructions : <%= i.instructions[0] %>
+                    </p>
+                    <h3>
+                        Cuisine : <%= i.cuisine %>
+                    </h3>
+                    <p>
+                        Meal Type : <%= i.mealType[0] %>
+                    </p>
+
+                    <a href="/recipes/cart/<%= i.id %>">
+                        <button>View</button>
+                    </a>
+                </div>
+                <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

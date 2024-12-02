@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <h1 class="text-3xl font-semibold m-5">Ragistration</h1>
+    <fieldset class="border border-gray-300 p-6 rounded-lg shadow-md m-5">
+        <legend class="text-lg font-semibold text-gray-700">Register</legend>
+        <form action="/register" method="post" class="space-y-4">
+            <div>
+                <input type="text" name="firstName" placeholder="e.g. First Name"
+                    class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-300 focus:outline-none" />
+            </div>
+            <div>
+                <input type="text" name="lastName" placeholder="e.g. Last Name"
+                    class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-300 focus:outline-none" />
+            </div>
+            <div>
+                <input type="email" name="email" placeholder="e.g. Email"
+                    class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-300 focus:outline-none" />
+            </div>
+            <div>
+                <input type="text" name="password" placeholder="e.g. Password"
+                    class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-300 focus:outline-none" />
+            </div>
+            <div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition duration-200">
+                    Continue
+                </button>
+            </div>
+        </form>
+        <span class="text-sm text-gray-600">
+            If you have an
+            <a href="/login" class="text-indigo-600 hover:underline">
+                account
+            </a>?
+        </span>
+    </fieldset>
+
+</body>
+
+</html>

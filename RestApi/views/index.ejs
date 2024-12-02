@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>rest-api</title>
+</head>
+
+<body>
+    <h1>Rest Api Example</h1>
+    <a href="/data/form"><button>Create</button></a>
+
+
+    <a href="/data/recover?"><button>View All Data</button></a>
+
+
+    <div class="comment-list">
+        <% for (let i of data) { %>
+            <div class="comment-item">
+                <h2>0<%= i.id %>
+                </h2>
+                <h3 class="username">
+                    Name : <%= i.username %>
+                </h3>
+
+                <p class="comment">
+                    Comment : <%= i.comment %>
+                </p>
+
+                <a href="/data/new/<%=i.id%>"><button>view</button></a>
+                <a href="/data/edit/<%=i.id%>"><button>edit</button></a>
+                <!-- <a href="/data/delete/<%=i.id%>"><button>Delete</button></a> -->
+                <form action="/data/delete/<%= i.id %>?_method=DELETE" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+                
+
+            </div>
+            <% } %>
+    </div>
+
+
+</body>
+
+</html>

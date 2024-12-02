@@ -1,0 +1,113 @@
+learn how to downlode : https://youtu.be/gB6WLkSrtJk?si=83PxgLzQ2ak_Q1Yt
+
+
+
+
+
+db creation phase
+
+let mongoose =  require('mongoose')
+mongoose.connect('mongodb://127.0.0.1:27017/databasename').then(()=>{
+    console.log('db');
+    
+}).catch((err)=>{
+    console.log(err);
+    
+})
+
+
+
+
+
+/terminal
+1. show databases or show dbs //displays all the dbs in your system
+2. db //shows the db where you are currently working (test)
+3. use moviesDB //the database you want to work with right now 
+4. db.dropDatabase() //deletes the entire database from the system.
+5. use moviesDB //create a new database
+6. db.createCollection() //creates collection
+7. db.collection.drop() //removes collection
+//but this movies DB is not shown in the show dbs because it needs to have 
+//some value in it before displaying
+
+
+
+/terminal
+
+//TO CREATE
+//insert 1 element
+1. db.movies.insertOne({name:'superman' , imdb:7.7});
+//insert many elements
+2.db.movies.insertMany([ {name:'m1', imdb:6},{name:'m2', imdb:7} ]);
+
+
+//TO READ
+//1. to find all the documents
+db.movies.find({});
+//2. to find with conditions
+db.movies.find({imdb:5 , name:'superman'})
+
+
+//TO UPDATE
+//1. to update 1 document
+db.movies.updateOne({name:'superman'},{$set:{imdb:10}})
+//2. to update many changes in 1 document
+db.movies.updateOne({name:'superman'},{$set:{imdb:10,name:"samarth"}});
+//3. to update many documents at once
+db.movies.updateMany({imdb:7},{$set:{imdb:8,name:"sam"}})
+
+
+//TO DELETE
+//1. to delete 1 document
+db.movies.deleteOne({name:'samarth'})
+//2. to delete many documents
+db.movies.deleteOne({})
+
+
+
+
+
+
+
+
+
+### MongoDB operators:
+
+1. $eq
+2. $gt   ||   $gte
+
+jsx
+db.movies.find({imdb:{$eq:8}})
+
+
+jsx
+db.movies.find({imdb:{$gt:7}})
+db.movies.find({imdb:{$gte:8}})
+
+
+1. $lt  ||  $lte
+
+jsx
+db.movies.find({imdb:{$lt:9}})
+db.movies.find({imdb:{$lte:8}})
+
+
+1. $in
+
+jsx
+db.movies.find({imdb:{$in:[8,9,7,6]}})
+//provides a list of documents which lies in the range to these numbers.
+
+
+### Logical operators:
+
+1. $and
+
+jsx
+db.movies.find( { $and:[ { imdb:{$gte:7 } } , { imdb:{ $lte:10 } } ] } ) 
+
+
+1. $or
+
+jsx
+db.movies.find( { $or:[ { imdb:{$gte:8 } } , { imdb:{ $lte:5 } } ] } ) 

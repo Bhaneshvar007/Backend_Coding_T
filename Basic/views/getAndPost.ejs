@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <h1>Get and Post</h1>
+        <fieldset>
+            <legend>Get</legend>
+            <form action="/user" method="GET">
+                <input type="text" name="name" placeholder="e:g name">
+                <br><br>
+                <input type="password" name="pass" placeholder="e:g passwerd">
+                <br><br>
+
+                <button>submit</button>
+            </form>
+        </fieldset>
+
+        <br><br>
+        <fieldset>
+            <legend>Post</legend>
+            <form action="/user" method="POST">
+                <input type="text" name="name" placeholder="e:g name">
+                <br><br>
+                <input type="password" name="pass" placeholder="e:g passwerd">
+                <br><br>
+
+                <button>submit</button>
+            </form>
+        </fieldset>
+    </div>
+</body>
+
+</html>
